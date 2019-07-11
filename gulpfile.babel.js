@@ -105,6 +105,10 @@ const server = () => {
   });
 };
 
+const build = () => {
+  parallel(series(style, cssMinify), series(script, jsMinify), includes, copyAssets)
+};
+
 //tasks 
 exports.style = style;
 exports.cssMinify = cssMinify;
@@ -116,4 +120,4 @@ exports.watch = watch;
 exports.server = server;
 
 //default task
-exports.default = parallel(server, series(style, cssMinify), series(script, jsMinify), includes, copyAssets, watch);
+exports.default = parallel(server, build, watch);

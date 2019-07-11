@@ -1,7 +1,13 @@
 @import 'helpers/variables';
 @import 'helpers/mixins';
+@import 'helpers/reset';
 @import 'helpers/helpers';
+@import 'helpers/typography';
 
 @import 'atoms/buttons';
 @import 'atoms/inputs';
 @import 'atoms/labels';
+
+
+@import 'organismes/header';
+@import 'organismes/main';
