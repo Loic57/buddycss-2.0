@@ -49,7 +49,7 @@ const script = () => {
         console.log(err.codeFrame);
         this.emit('end');
     })
-    .pipe(rename('buddy.js')) 
+    .pipe(rename('buddy.js'))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("build/js"))
     .pipe(browserSync.stream())
@@ -106,10 +106,10 @@ const server = () => {
 };
 
 const build = () => {
-  parallel(series(style, cssMinify), series(script, jsMinify), includes, copyAssets)
+  return gulp.parallel(series(style, cssMinify), series(script, jsMinify), includes, copyAssets)();
 };
 
-//tasks 
+//tasks
 exports.style = style;
 exports.cssMinify = cssMinify;
 exports.script = script;
